@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Help_MasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style2
+        {
+            width: 100%;
+        }
+        .auto-style3
+        {
+            height: 25px;
+        }
+        .auto-style4
+        {
+            height: 25px;
+            width: 46px;
+        }
+        .auto-style5
+        {
+            height: 25px;
+            width: 65px;
+        }
+        .auto-style6
+        {
+            height: 25px;
+            width: 27px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <table class="auto-style2">
+        <tr>
+            <td class="auto-style4">
+                <asp:Button ID="btnContent" runat="server" BackColor="#6699FF" BorderStyle="None" Text="目录" Width="72px" ForeColor="White" OnClick="btnContent_Click" />
+            </td>
+            <td class="auto-style5">
+                &nbsp;</td>
+            <td class="auto-style6">
+                <asp:Button ID="btnFavor" runat="server" BackColor="#CCFFCC" BorderStyle="None" Text="收藏" Width="58px" OnClick="btnFavor_Click" />
+            </td>
+            <td class="auto-style3" style="background-color: #99CCFF">
+                <asp:LinkButton ID="lnkbtnAdd" runat="server" OnClick="lnkbtnAdd_Click">添加到收藏</asp:LinkButton>
+&nbsp; |&nbsp; 
+                <asp:Label ID="lblTitle" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="vertical-align: top; text-align: left">
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Help/" />
+                <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+                    <asp:View ID="View1" runat="server">
+                        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" ImageSet="WindowsHelp" Width="182px">
+                            <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
+                            <NodeStyle Font-Names="Tahoma" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="1px" />
+                            <ParentNodeStyle Font-Bold="False" />
+                            <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px" VerticalPadding="0px" />
+                        </asp:TreeView>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                        <asp:GridView ID="gvFavor" runat="server" AutoGenerateColumns="False" EnableModelValidation="True" OnRowDeleting="gvFavor_RowDeleting" ShowHeader="False">
+                            <Columns>
+                                <asp:HyperLinkField DataNavigateUrlFields="url" DataNavigateUrlFormatString="{0}" DataTextField="title" ShowHeader="False" />
+                                <asp:CommandField ShowDeleteButton="True" />
+                            </Columns>
+                            <EmptyDataTemplate>
+                                没有收藏哦！
+                            </EmptyDataTemplate>
+                        </asp:GridView>
+                    </asp:View>
+                </asp:MultiView>
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

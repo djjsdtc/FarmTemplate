@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Farm_MasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style2
+        {
+            width: 100%;
+        }
+        .auto-style3
+        {
+            width: 160px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <table class="auto-style2">
+        <tr style="vertical-align: top">
+            <td class="auto-style3">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FarmConnectionString %>" SelectCommand="SELECT [UserName] FROM [userinfo]"></asp:SqlDataSource>
+                <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/Farm/Default.aspx">返回我的农场</asp:HyperLink>
+                <br />
+                <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/Farm/Log.aspx">查看日志</asp:HyperLink>
+                <br />
+                <br />
+                <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="SqlDataSource1" EnableModelValidation="True" OnRowDataBound="GridView2_RowDataBound">
+                    <Columns>
+                        <asp:TemplateField HeaderText="我的好友" ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="hlUser" runat="server" Text='<%# Bind("UserName") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

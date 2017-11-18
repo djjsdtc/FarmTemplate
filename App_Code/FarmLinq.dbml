@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FarmTemplate" Class="FarmLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\FarmTemplate.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FarmConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.farmtable" Member="farmtable">
+    <Type Name="farmtable">
+      <Column Name="seedid" Type="System.String" DbType="NChar(6)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FieldNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="addedtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="leftgoods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="userinfo_farmtable" Member="userinfo" ThisKey="UserName" OtherKey="UserName" Type="userinfo" IsForeignKey="true" />
+      <Association Name="seedinfo_farmtable" Member="seedinfo" ThisKey="seedid" OtherKey="seedid" Type="seedinfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.userinfo" Member="userinfo">
+    <Type Name="userinfo">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fieldnum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="usermoney" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="userinfo_farmtable" Member="farmtable" ThisKey="UserName" OtherKey="UserName" Type="farmtable" />
+      <Association Name="userinfo_foodstorage" Member="foodstorage" ThisKey="UserName" OtherKey="UserName" Type="foodstorage" />
+      <Association Name="userinfo_seedstorage" Member="seedstorage" ThisKey="UserName" OtherKey="UserName" Type="seedstorage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.foodstorage" Member="foodstorage">
+    <Type Name="foodstorage">
+      <Column Name="seedid" Type="System.String" DbType="NChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="foodamount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="userinfo_foodstorage" Member="userinfo" ThisKey="UserName" OtherKey="UserName" Type="userinfo" IsForeignKey="true" />
+      <Association Name="seedinfo_foodstorage" Member="seedinfo" ThisKey="seedid" OtherKey="seedid" Type="seedinfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seedinfo" Member="seedinfo">
+    <Type Name="seedinfo">
+      <Column Name="seedid" Type="System.String" DbType="NChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="seedname" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="describe" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="buyprice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mature_minute" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="outamount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sellprice" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isselling" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pic_location" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="seedinfo_farmtable" Member="farmtable" ThisKey="seedid" OtherKey="seedid" Type="farmtable" />
+      <Association Name="seedinfo_foodstorage" Member="foodstorage" ThisKey="seedid" OtherKey="seedid" Type="foodstorage" />
+      <Association Name="seedinfo_seedstorage" Member="seedstorage" ThisKey="seedid" OtherKey="seedid" Type="seedstorage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seedstorage" Member="seedstorage">
+    <Type Name="seedstorage">
+      <Column Name="seedid" Type="System.String" DbType="NChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="seedamount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="seedinfo_seedstorage" Member="seedinfo" ThisKey="seedid" OtherKey="seedid" Type="seedinfo" IsForeignKey="true" />
+      <Association Name="userinfo_seedstorage" Member="userinfo" ThisKey="UserName" OtherKey="UserName" Type="userinfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.onfarm" Member="onfarm">
+    <Type Name="onfarm">
+      <Column Name="username" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="FieldNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="seedname" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="leftgoods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pic_location" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="lefttime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.stoleinfo" Member="stoleinfo">
+    <Type Name="stoleinfo">
+      <Column Name="source_user" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="target_user" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="fieldno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="seedname" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="stoledate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sowseed" Method="sowseed">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="seedid" Type="System.String" DbType="NChar(6)" />
+    <Parameter Name="fieldno" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sowseedResult">
+      <Column Name="outamount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.harvest" Method="harvest">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="fieldno" Type="System.Int32" DbType="Int" />
+    <ElementType Name="harvestResult">
+      <Column Name="seedid" Type="System.String" DbType="NChar(6)" CanBeNull="true" />
+      <Column Name="leftgoods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sell" Method="sell">
+    <Parameter Name="seedid" Type="System.String" DbType="NChar(6)" />
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(256)" />
+    <ElementType Name="sellResult">
+      <Column Name="foodamount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buyseed" Method="buyseed">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="seedid" Type="System.String" DbType="NChar(6)" />
+    <Parameter Name="amount" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.stole" Method="stole">
+    <Parameter Name="source_user" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="target_user" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="fieldid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

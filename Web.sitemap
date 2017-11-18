@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="首页"  description="">
+    <siteMapNode url="~/SeedShop/Default.aspx" title="种子商店"  description="" />
+    <siteMapNode url="~/Farm/Default.aspx" title="我的农场"  description="">
+      <siteMapNode url="~/Farm/FriendFarm.aspx" title="好友农场" description="" />
+      <siteMapNode url="~/Farm/Log.aspx" title="日志" description="" />
+      <siteMapNode url="~/Farm/SelectSeed.aspx" title="选择种子" description="" />
+    </siteMapNode>
+    <siteMapNode url="~/SaleMarket/Default.aspx" title="农贸集市"  description="" />
+    <siteMapNode siteMapFile="~/Help/Web.sitemap" />
+    <siteMapNode title="用户管理">
+      <siteMapNode url="~/UserSettings/ChangePassword.aspx" title="更改密码" description="" />
+      <siteMapNode url="~/UserSettings/ForgetPassword.aspx" title="找回密码" description="" />
+      <siteMapNode url="~/UserSettings/Register.aspx" title="注册新用户" description="" />
+      <siteMapNode url="~/Login.aspx" title="用户登陆" description="" />
+    </siteMapNode>
+    <siteMapNode url="~/ErrorPage.aspx" title="错误提示" description="" />
+    <!--管理员工具-->
+    <siteMapNode title="后台管理">
+      <siteMapNode url="~/Management/Announcement.aspx" title="公告管理" description="" />
+      <siteMapNode url="~/Management/SeedShop.aspx" title="种子管理" description="">
+        <siteMapNode url="~/Management/SeedShopError.aspx" title="错误提示" description=""/>
+      </siteMapNode>
+      <siteMapNode url="~/Management/Users.aspx" title="用户管理" description=""/>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

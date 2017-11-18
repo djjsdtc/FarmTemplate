@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Help/" title="帮助">
+    <siteMapNode title="使用帮助">
+      <siteMapNode url="~/Help/Default.aspx" title="游戏简介"  description="" />
+      <siteMapNode url="~/Help/ZuowuZhongzhi.aspx" title="作物的种植"  description="" />
+      <siteMapNode url="~/Help/TouCai.aspx" title="偷窃"  description="" />
+    </siteMapNode>
+    <siteMapNode title="技术支持">
+      <siteMapNode url="~/Help/Contact.aspx" title="联系我们"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

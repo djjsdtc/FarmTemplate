@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FarmLinq">
+  <DataContextMoniker Name="/FarmLinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1156d850-a123-4208-92d5-b72f39d35fbb" absoluteBounds="3.5, 6.625, 2, 1.6169661458333335">
+      <DataClassMoniker Name="/FarmLinqDataContext/farmtable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b58efd4-2688-463b-a01a-6edfa2efb500" absoluteBounds="3.515, 7.085, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="418f6e06-5a70-4f39-b3a5-f17232afd6bf" absoluteBounds="0.75, 0.75, 2, 1.2797265625">
+      <DataClassMoniker Name="/FarmLinqDataContext/userinfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ae302bb-9145-4260-aaf9-f7ef66ee924e" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0846fb2-1ee3-4eb7-b6b0-64ee31257fa7" absoluteBounds="3.5, 3.75, 2, 1.2797265624999996">
+      <DataClassMoniker Name="/FarmLinqDataContext/foodstorage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0874beac-6aac-4880-9a15-093472057131" absoluteBounds="3.515, 4.21, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4157da7f-14cd-4398-8cbe-660c10edf802" absoluteBounds="0.75, 3.25, 2, 2.2914453124999996">
+      <DataClassMoniker Name="/FarmLinqDataContext/seedinfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cb943a19-51c2-40f0-ac2a-28b3c4cd8f98" absoluteBounds="0.765, 3.71, 1.9700000000000002, 1.7314453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7c4c961-04eb-477a-b21a-55ff3dca0e88" absoluteBounds="3.5, 1.75, 2, 1.2797265624999996">
+      <DataClassMoniker Name="/FarmLinqDataContext/seedstorage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41a838fa-b0a9-4547-9d4a-43654e334782" absoluteBounds="3.515, 2.21, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4872b96-751c-49b1-872f-fe01f8a42adb" absoluteBounds="6.75, 1.25, 2, 1.7855859375">
+      <DataClassMoniker Name="/FarmLinqDataContext/onfarm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f99f8aa3-7080-444a-a20d-09d3eb758293" absoluteBounds="6.765, 1.71, 1.9700000000000002, 1.2255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.72932749399038 : 2.0297265625); (3.125 : 2.42539906850962); (3.125 : 7.43348307291667); (3.5 : 7.43348307291667)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FarmLinqDataContext/userinfo/userinfo_farmtable" />
+      <nodes>
+        <classShapeMoniker Id="418f6e06-5a70-4f39-b3a5-f17232afd6bf" />
+        <classShapeMoniker Id="1156d850-a123-4208-92d5-b72f39d35fbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.97755209495192); (3.28125 : 2.50880209495192); (3.28125 : 4.38986328125); (3.5 : 4.38986328125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FarmLinqDataContext/userinfo/userinfo_foodstorage" />
+      <nodes>
+        <classShapeMoniker Id="418f6e06-5a70-4f39-b3a5-f17232afd6bf" />
+        <classShapeMoniker Id="f0846fb2-1ee3-4eb7-b6b0-64ee31257fa7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.5414453125); (1.75 : 7.43348307291667); (3.5 : 7.43348307291667)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FarmLinqDataContext/seedinfo/seedinfo_farmtable" />
+      <nodes>
+        <classShapeMoniker Id="4157da7f-14cd-4398-8cbe-660c10edf802" />
+        <classShapeMoniker Id="1156d850-a123-4208-92d5-b72f39d35fbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.007431640625); (3.04166666666667 : 4.007431640625 : JumpStart); (3.36458333333333 : 4.007431640625 : JumpEnd); (3.5 : 4.007431640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FarmLinqDataContext/seedinfo/seedinfo_foodstorage" />
+      <nodes>
+        <classShapeMoniker Id="4157da7f-14cd-4398-8cbe-660c10edf802" />
+        <classShapeMoniker Id="f0846fb2-1ee3-4eb7-b6b0-64ee31257fa7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.31153746153846); (2.9375 : 3.12403746153846); (2.9375 : 3.5922265625); (3.06607443490112 : 3.46365212759888 : JumpStart); (3.18392556509888 : 3.34580099740112 : JumpEnd); (3.22232443490112 : 3.30740212759888 : JumpStart); (3.34017556509888 : 3.18955099740112 : JumpEnd); (3.5 : 3.0297265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FarmLinqDataContext/seedinfo/seedinfo_seedstorage" />
+      <nodes>
+        <classShapeMoniker Id="4157da7f-14cd-4398-8cbe-660c10edf802" />
+        <classShapeMoniker Id="a7c4c961-04eb-477a-b21a-55ff3dca0e88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.70841124699519 : 2.0297265625); (1.70841124699519 : 2.57334385416667); (3.04166666666667 : 2.57334385416667 : JumpStart); (3.20833333333333 : 2.57334385416667 : JumpEnd); (3.5 : 2.57334385416667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FarmLinqDataContext/userinfo/userinfo_seedstorage" />
+      <nodes>
+        <classShapeMoniker Id="418f6e06-5a70-4f39-b3a5-f17232afd6bf" />
+        <classShapeMoniker Id="a7c4c961-04eb-477a-b21a-55ff3dca0e88" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="14e9183a-cbcf-41f1-a8dd-c9e106cb620f" absoluteBounds="3.125, 0.5, 2, 1.6169661458333331">
+      <DataClassMoniker Name="/FarmLinqDataContext/stoleinfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0432f9d8-b11b-429a-a70b-e815c6238928" absoluteBounds="3.14, 0.96, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
